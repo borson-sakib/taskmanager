@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\theteam;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware(['auth']);
+Route::get('/', [theteam::class, 'users'])->name('landingPage');
+Route::get('/beAmember', function () {
+    return view('memberRegistration');
+})->name('memberRegistration');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
